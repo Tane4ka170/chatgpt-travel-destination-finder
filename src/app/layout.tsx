@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Selector } from "./components/selector";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,8 +13,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" data-theme="synthwave">
+      <body className="bg-neutral">
+        <div className="flex flex-col items-center">
+          <div className="max-w-screen-md min-h-[100vh] w-full flex flex-col">
+            <Selector />
+
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
